@@ -3,6 +3,7 @@ export const API_CONFIG = {
     endpoints: {
       programs: '/Programs',
       students: '/Students',
-      user: '/UsersLogin'
+      user: '/UsersLogin',
+      subject: '/Subjects'
     }
   };

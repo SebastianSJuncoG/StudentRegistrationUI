@@ -11,6 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/programs/pages/programs/student-page/student-page.component').then(m => m.StudentPageComponent)
   },
   {
+    path: 'subjects',
+    loadComponent: () => import('./features/programs/pages/programs/subject-page/subject-page.component').then(m => m.SubjectPageComponent)
+  },
+  {
     path: '**', // Redirige a una página 404 para cualquier otra ruta
     redirectTo: '',
   },
