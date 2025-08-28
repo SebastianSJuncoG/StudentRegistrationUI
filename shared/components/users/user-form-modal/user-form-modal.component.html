@@ -1,0 +1,78 @@
+<div class="modal-header">
+  <h4 class="modal-title">Crear Nuevo Usuario</h4>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss('Cross click')" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <form #userForm="ngForm">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="userName" class="form-label">Nombre de Usuario</label>
+        <input id="userName" name="userName" [(ngModel)]="user.userName" class="form-control" required>
+        <div *ngIf="userForm.controls['userName']?.invalid && userForm.controls['userName']?.touched" class="text-danger">
+          El nombre de usuario es requerido.
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="tempPassword" class="form-label">Contraseña Temporal</label>
+        <input id="tempPassword" name="tempPassword" [(ngModel)]="user.tempPassword" type="password" class="form-control" required>
+        <div *ngIf="userForm.controls['tempPassword']?.invalid && userForm.controls['tempPassword']?.touched" class="text-danger">
+          La contraseña es requerida.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="firstName" class="form-label">Nombre</label>
+        <input id="firstName" name="firstName" [(ngModel)]="user.firstName" class="form-control" required>
+        <div *ngIf="userForm.controls['firstName']?.invalid && userForm.controls['firstName']?.touched" class="text-danger">
+          El nombre es requerido.
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="lastName" class="form-label">Apellido</label>
+        <input id="lastName" name="lastName" [(ngModel)]="user.lastName" class="form-control" required>
+        <div *ngIf="userForm.controls['lastName']?.invalid && userForm.controls['lastName']?.touched" class="text-danger">
+          El apellido es requerido.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input id="email" name="email" [(ngModel)]="user.email" type="email" class="form-control" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+        <div *ngIf="userForm.controls['email']?.errors?.['required'] && userForm.controls['email']?.touched" class="text-danger">
+          El correo electrónico es requerido.
+        </div>
+        <div *ngIf="userForm.controls['email']?.errors?.['pattern'] && userForm.controls['email']?.touched" class="text-danger">
+          Debe ser un correo electrónico válido.
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="idIdentificationType" class="form-label">Tipo de Identificación</label>
+        <input id="idIdentificationType" name="idIdentificationType" [(ngModel)]="user.idIdentificationType" type="number" class="form-control" required>
+        <div *ngIf="userForm.controls['idIdentificationType']?.invalid && userForm.controls['idIdentificationType']?.touched" class="text-danger">
+          El tipo de identificación es requerido.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="documentNumber" class="form-label">Número de Documento</label>
+        <input id="documentNumber" name="documentNumber" [(ngModel)]="user.documentNumber" class="form-control" required>
+        <div *ngIf="userForm.controls['documentNumber']?.invalid && userForm.controls['documentNumber']?.touched" class="text-danger">
+          El número de documento es requerido.
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="save()" [disabled]="!userForm.valid">Guardar</button>
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cancel click')">Cancelar</button>
+</div>

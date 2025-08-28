@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editar Estudiante</h4>
+    <button type="button" class="btn-close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form #editForm="ngForm">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName" class="form-label">Nombre</label>
+                <input id="firstName" name="firstName" [(ngModel)]="student.firstName" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">Apellido</label>
+              <input id="lastName" name="lastName" [(ngModel)]="student.lastName" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" [(ngModel)]="student.email" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="idIdentificationType" class="form-label">Tipo de identificación</label>
+                <input id="idIdentificationType" name="idIdentificationType" [(ngModel)]="student.idIdentificationType" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="documentNumber" class="form-label">Número de documento</label>
+                <input id="documentNumber" name="documentNumber" [(ngModel)]="student.documentNumber" class="form-control" required>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()" [disabled]="!editForm.valid">Guardar</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cancel click')">Cancelar</button>
+</div>

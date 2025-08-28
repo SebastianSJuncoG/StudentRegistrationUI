@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Estudiantes registrados</h1>
+    <button type="button" class="btn btn-primary" (click)="create.emit()">Agregar estudiante</button>
+  </div>
+  
+  <p class="lead">Listado de los estudiantes inscritos en el sistema.</p>
+
+  <hr>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo Electrónico</th>
+          <th>Número de Documento</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.documentNumber }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" (click)="edit.emit(student)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="delete.emit(student)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div *ngIf="!students || students.length === 0" class="alert alert-info text-center">
+      No hay estudiantes para mostrar.
+    </div>
+  </div>
+</div>
